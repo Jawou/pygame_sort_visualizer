@@ -8,12 +8,11 @@ GREEN = (0, 255, 0)
 clock = pygame.time.Clock() 
 
 class numbers_displayer:
-  def __init__(self, WIDTH, HEIGHT, numbers, scale, line_width, window_name, matching_list):
+  def __init__(self, WIDTH, HEIGHT, numbers, scale, window_name, matching_list):
     self.WIDTH = WIDTH
     self.HEIGHT = HEIGHT
     self.numbers = numbers
     self.scale = scale
-    self.line_width = line_width
     self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
     self.numbers_length = len(numbers)
     self.matching_list = matching_list
@@ -46,20 +45,11 @@ for i in range(50):
     random_numbers.append(random.randint(0,410))
   
 
-screen = numbers_displayer(360, 480, random_numbers, 1, 5, "insertion-sort", sorted(random_numbers))
+screen = numbers_displayer(360, 480, random_numbers, 1, "template-sort", sorted(random_numbers))
 
 
-n = len(random_numbers)
+#add sort algorithm here and call screen.update_screen() every change in the list
 
-for i in range(1, n):
-    key = random_numbers[i]         
-    j = i - 1
-    while j >= 0 and key < random_numbers[j]: 
-        random_numbers[j + 1] = random_numbers[j]
-        j -= 1
-        screen.update_screen()
-        clock.tick(30)
-    random_numbers[j + 1] = key      
 
 while True:
     clock.tick(1)
