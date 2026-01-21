@@ -48,6 +48,22 @@ for i in range(50):
 
 screen = numbers_displayer(360, 480, random_numbers, 1, 5, "horrible-sort", sorted(random_numbers))
 
+
+
+
+n = len(random_numbers)
+
+for i in range(1, n):
+    key = random_numbers[i]         
+    j = i - 1
+    while j >= 0 and key < random_numbers[j]: 
+        random_numbers[j + 1] = random_numbers[j]
+        j -= 1
+        screen.update_screen()
+        clock.tick(30)
+    random_numbers[j + 1] = key      
+
+'''
 for i in range(screen.numbers_length):
     for u in range(screen.numbers_length-i-1):
         clock.tick(240)
@@ -59,3 +75,4 @@ for i in range(screen.numbers_length):
 
 while True:
     clock.tick(1)
+'''
